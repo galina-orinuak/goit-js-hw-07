@@ -29,23 +29,20 @@ function handlerImgClick(evt){
         return;
       }
     const instance = basicLightbox.create(`
-    <img src = ${evt.target.dataset.source} width="800" height="600">`)
+    <img src = ${evt.target.dataset.source} width="800" height="600">`,
+    {onShow:(instance) => {document.addEventListener('keydown', closeModal)},
+    onClose:(instance) => {document.removeEventListener('keydown', closeModal)}})
 
-instance.show()
+    instance.show()
 
+    function closeModal(eventEsc){
+      if(eventEsc.code === 'Escape') {
+        instance.close()} 
+      }
+      
 
-container.addEventListener('keydown', event => {
-    if (event.code === 'Escape') {
-      instance.close();
-    }
-  });
+      
 
-}
+  }
 
-
-
-
-
-
-console.log(galleryItems);
 
