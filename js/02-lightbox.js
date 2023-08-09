@@ -19,13 +19,8 @@ function createMarkup(arr){
 
 container.insertAdjacentHTML('beforeend', createMarkup(galleryItems));
 
-container.addEventListener('click', handlerImgClick);
-function handlerImgClick(evt){
-    evt.preventDefault();
-    if (evt.target.nodeName !== 'IMG') {
-        return;}
     
-    var lightbox = new SimpleLightbox('.gallery a', { 
+   const lightbox = new SimpleLightbox('.gallery a', { 
       captions: true,
       captionType:'attr',
       captionsData: 'alt',
@@ -34,8 +29,7 @@ function handlerImgClick(evt){
 
     });
     
-    }
+    
 
-console.log(galleryItems);
 
 
